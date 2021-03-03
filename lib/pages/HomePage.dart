@@ -9,13 +9,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-
+        title: Text(
+          widget.title,
+          style: TextStyle(
+            fontFamily: 'Knewave',
+            fontSize: 30.0,
+          ),
+        ),
+        backgroundColor: Colors.red,
       ),
       body: Center(
         child: Container(

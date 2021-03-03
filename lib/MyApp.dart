@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:the_battle/pages/AllCharactersPage.dart';
 import 'package:the_battle/pages/HomePage.dart';
+import 'package:the_battle/data/characters.dart';
 
 class MyApp extends StatelessWidget {
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(title: 'The Battle'),
+      home: AllCharactersPage(characters: characters),
     );
   }
 }

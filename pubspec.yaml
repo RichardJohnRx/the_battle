@@ -25,6 +25,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/the-battle-logo.png
+    - assets/images/characters/
   fonts:
     - family: Knewave
       fonts:
