@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:the_battle/models/Character.dart';
 
 class CharacterDetail extends StatelessWidget {
-  CharacterDetail({Key key, this.character}) : super(key: key);
+  CharacterDetail({Key key, this.character, this.addToTeam}) : super(key: key);
   final Character character;
+  final Function addToTeam;
+
+  void _onPressed(){
+    addToTeam(character);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,76 +26,103 @@ class CharacterDetail extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            flex: 4,
-            child: Column(children: [
-              Container(
-                padding: EdgeInsets.only(
-                  left: 0.0,
-                  right: 0.0,
-                  top: 15.5,
-                  bottom: 15,
-                ),
-                child: Text(
-                  character.name,
-                  style: TextStyle(
-                    fontFamily: 'Knewave',
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              Container(
-                  padding: EdgeInsets.only(
-                    left: 32.5,
-                    right: 32.5,
-                    top: 0.0,
-                    bottom: 32.5,
-                  ),
-                  child: Image.asset(character.imagePath())),
-            ]),
-          ),
-          Expanded(
-            flex: 5,
-            child: Container(
-              child: Center(
+          Row(
+            children: [
+              Expanded(
+                flex: 4,
                 child: Column(
                   children: [
-                    Text(
-                      'Strenght : ' + character.strength.value.toString(),
-                      style: TextStyle(
-                        fontFamily: 'Knewave',
-                        fontSize: 22.0,
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: 0.0,
+                        right: 0.0,
+                        top: 15.5,
+                        bottom: 15,
+                      ),
+                      child: Text(
+                        character.name,
+                        style: TextStyle(
+                          fontFamily: 'Knewave',
+                          fontSize: 18,
+                          color: Colors.red[700],
+                        ),
                       ),
                     ),
-                    Text(
-                      'Speed : ' + character.speed.value.toString(),
-                      style: TextStyle(
-                        fontFamily: 'Knewave',
-                        fontSize: 22.0,
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 32.5,
                       ),
-                    ),
-                    Text(
-                      'Cleverness : ' + character.cleverness.value.toString(),
-                      style: TextStyle(
-                        fontFamily: 'Knewave',
-                        fontSize: 22.0,
-                      ),
-                    ),
-                    Text(
-                      'Intelligence : ' +
-                          character.intelligence.value.toString(),
-                      style: TextStyle(
-                        fontFamily: 'Knewave',
-                        fontSize: 22.0,
-                      ),
+                      child: Image.asset(character.imagePath())
                     ),
                   ],
                 ),
               ),
+              Expanded(
+                flex: 5,
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Strenght : ' + character.strength.value.toString(),
+                        style: TextStyle(
+                          fontFamily: 'Knewave',
+                          fontSize: 22.0,
+                          color: Colors.red[700],
+                        ),
+                      ),
+                      Text(
+                        'Speed : ' + character.speed.value.toString(),
+                        style: TextStyle(
+                          fontFamily: 'Knewave',
+                          fontSize: 22.0,
+                          color: Colors.red[700],
+                        ),
+                      ),
+                      Text(
+                        'Cleverness : ' + character.cleverness.value.toString(),
+                        style: TextStyle(
+                          fontFamily: 'Knewave',
+                          fontSize: 22.0,
+                          color: Colors.red[700],
+                        ),
+                      ),
+                      Text(
+                        'Intelligence : ' + character.intelligence.value.toString(),
+                        style: TextStyle(
+                          fontFamily: 'Knewave',
+                          fontSize: 22.0,
+                          color: Colors.red[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          ElevatedButton(
+            onPressed: () => _onPressed(),
+            child: Text(
+              'Add to team',
+              style: TextStyle(
+                fontFamily: 'Knewave',
+                fontSize: 20.0,
+                color: Colors.red[600],
+              ),
+            ),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+                  return Colors.red[100];
+                },
+              ),
             ),
           ),
+          SizedBox(
+            height: 5,
+          )
         ],
       ),
     );

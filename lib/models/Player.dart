@@ -10,6 +10,8 @@ class Player {
   Team team;
 
   Player(this.uuid, this.firstname, this.lastname, this.email, this.gender) {
+    this.team = Team("uuid2", this);
+
     if (gender != 1 && gender != 2) {
       throw new Exception('Gender must be 1 = male or 2 = female');
     }

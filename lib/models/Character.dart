@@ -4,6 +4,8 @@ class Character {
   final String uuid, name;
   String image = "";
   Skill strength, speed, cleverness, intelligence;
+  bool selected = false;
+  bool autoSelected = false;
 
   Character(this.uuid, this.name, this.strength, this.speed, this.cleverness,
       this.intelligence);

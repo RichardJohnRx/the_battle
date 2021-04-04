@@ -15,19 +15,21 @@ class _CharacterPreviewState extends State<CharacterPreview> {
   _CharacterPreviewState();
 
   Color _getColorAccordingToSelected(){
-    return (widget.visited) ? Colors.deepOrangeAccent :  Colors.redAccent;
+    if(widget.character.autoSelected  || widget.character.selected){
+      return Colors.green;
+    } else {
+      return (widget.visited) ? Colors.deepOrangeAccent : Colors.redAccent;
+    }
   }
 
   void _onTap(){
-    this.widget.onSelected(this.widget.character);
+    widget.onSelected(widget.character);
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        _onTap();
-      },
+      onTap: () => _onTap(),
       child: Container(
         margin: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
@@ -60,6 +62,7 @@ class _CharacterPreviewState extends State<CharacterPreview> {
                     style: TextStyle(
                       fontFamily: 'Knewave',
                       fontSize: 24.0,
+                      color: Colors.white,
                     ),
                   ),
                 ),
