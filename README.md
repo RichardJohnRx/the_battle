@@ -1,6 +1,6 @@
 # the_battle
 
-A new Flutter application.
+https://github.com/RichardJohnRx/the_battle
 
 ## Participants
 
